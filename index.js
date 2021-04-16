@@ -12,7 +12,7 @@ var highscores = [{
 },
 {
   name : 'Aarti',
-  score : 3
+  score : 5
 }];
 
 function gameofThrones(question,answer){
@@ -68,16 +68,20 @@ if(score>=3){
   }
 }
 
+var oldMaxScore = 0;
+for(var i=0;i<highscores.length;i++){
+  if(highscores[i].score>=oldMaxScore){
+    oldMaxScore = highscores[i].score;
+  }
+}
 
-var flag =0;
+
 console.log('Highest Scorers : ');
 for(var i=0;i<highscores.length;i++){
   console.log(highscores[i]);
-  if(score>=highscores[i].score){
-    flag++;
-  }
 }
-if(flag>0){
+
+if(score>=oldMaxScore){
   console.log('You scored the highest! Send me a screenshot to update the list.');
 }
 
